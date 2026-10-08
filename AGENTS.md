@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep dashboard presentation in the index route with workspace-scoped semantic tokens, so redesigns do not alter the individual exercise pages.
