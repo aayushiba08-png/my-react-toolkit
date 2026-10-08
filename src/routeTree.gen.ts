@@ -10,13 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComponentsRouteImport } from './routes/components'
 import { Route as CounterRouteImport } from './routes/counter'
+import { Route as EmployeesRouteImport } from './routes/employees'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as JsTasksRouteImport } from './routes/js-tasks'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as RegisterRouteImport } from './routes/register'
 import { Route as TodoRouteImport } from './routes/todo'
+import { Route as UsersRouteImport } from './routes/users'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsRoute = ComponentsRouteImport.update({
+  id: '/components',
+  path: '/components',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CounterRoute = CounterRouteImport.update({
@@ -24,9 +35,29 @@ const CounterRoute = CounterRouteImport.update({
   path: '/counter',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmployeesRoute = EmployeesRouteImport.update({
+  id: '/employees',
+  path: '/employees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JsTasksRoute = JsTasksRouteImport.update({
+  id: '/js-tasks',
+  path: '/js-tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TodoRoute = TodoRouteImport.update({
@@ -34,39 +65,99 @@ const TodoRoute = TodoRouteImport.update({
   path: '/todo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UsersRoute = UsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/components': typeof ComponentsRoute
   '/counter': typeof CounterRoute
+  '/employees': typeof EmployeesRoute
+  '/faq': typeof FaqRoute
+  '/js-tasks': typeof JsTasksRoute
   '/products': typeof ProductsRoute
+  '/register': typeof RegisterRoute
   '/todo': typeof TodoRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/components': typeof ComponentsRoute
   '/counter': typeof CounterRoute
+  '/employees': typeof EmployeesRoute
+  '/faq': typeof FaqRoute
+  '/js-tasks': typeof JsTasksRoute
   '/products': typeof ProductsRoute
+  '/register': typeof RegisterRoute
   '/todo': typeof TodoRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/components': typeof ComponentsRoute
   '/counter': typeof CounterRoute
+  '/employees': typeof EmployeesRoute
+  '/faq': typeof FaqRoute
+  '/js-tasks': typeof JsTasksRoute
   '/products': typeof ProductsRoute
+  '/register': typeof RegisterRoute
   '/todo': typeof TodoRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/counter' | '/products' | '/todo'
+  fullPaths:
+    | '/'
+    | '/components'
+    | '/counter'
+    | '/employees'
+    | '/faq'
+    | '/js-tasks'
+    | '/products'
+    | '/register'
+    | '/todo'
+    | '/users'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/counter' | '/products' | '/todo'
-  id: '__root__' | '/' | '/counter' | '/products' | '/todo'
+  to:
+    | '/'
+    | '/components'
+    | '/counter'
+    | '/employees'
+    | '/faq'
+    | '/js-tasks'
+    | '/products'
+    | '/register'
+    | '/todo'
+    | '/users'
+  id:
+    | '__root__'
+    | '/'
+    | '/components'
+    | '/counter'
+    | '/employees'
+    | '/faq'
+    | '/js-tasks'
+    | '/products'
+    | '/register'
+    | '/todo'
+    | '/users'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComponentsRoute: typeof ComponentsRoute
   CounterRoute: typeof CounterRoute
+  EmployeesRoute: typeof EmployeesRoute
+  FaqRoute: typeof FaqRoute
+  JsTasksRoute: typeof JsTasksRoute
   ProductsRoute: typeof ProductsRoute
+  RegisterRoute: typeof RegisterRoute
   TodoRoute: typeof TodoRoute
+  UsersRoute: typeof UsersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -78,11 +169,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/components': {
+      id: '/components'
+      path: '/components'
+      fullPath: '/components'
+      preLoaderRoute: typeof ComponentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/counter': {
       id: '/counter'
       path: '/counter'
       fullPath: '/counter'
       preLoaderRoute: typeof CounterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employees': {
+      id: '/employees'
+      path: '/employees'
+      fullPath: '/employees'
+      preLoaderRoute: typeof EmployeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/js-tasks': {
+      id: '/js-tasks'
+      path: '/js-tasks'
+      fullPath: '/js-tasks'
+      preLoaderRoute: typeof JsTasksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products': {
@@ -92,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/todo': {
       id: '/todo'
       path: '/todo'
@@ -99,14 +225,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TodoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/users': {
+      id: '/users'
+      path: '/users'
+      fullPath: '/users'
+      preLoaderRoute: typeof UsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComponentsRoute: ComponentsRoute,
   CounterRoute: CounterRoute,
+  EmployeesRoute: EmployeesRoute,
+  FaqRoute: FaqRoute,
+  JsTasksRoute: JsTasksRoute,
   ProductsRoute: ProductsRoute,
+  RegisterRoute: RegisterRoute,
   TodoRoute: TodoRoute,
+  UsersRoute: UsersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
