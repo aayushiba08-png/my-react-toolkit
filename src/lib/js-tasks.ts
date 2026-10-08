@@ -61,7 +61,7 @@ export function uniquePreserveOrder<T>(arr: T[]): T[] {
 export function myMap<T, U>(arr: T[], fn: (item: T, index: number) => U): U[] {
   const result: U[] = [];
   for (let i = 0; i < arr.length; i++) {
-    result.push(fn(arr[i], i));
+    result.push(fn(arr[i] as T, i));
   }
   return result;
 }
@@ -70,7 +70,8 @@ export function myMap<T, U>(arr: T[], fn: (item: T, index: number) => U): U[] {
 export function myFilter<T>(arr: T[], fn: (item: T, index: number) => boolean): T[] {
   const result: T[] = [];
   for (let i = 0; i < arr.length; i++) {
-    if (fn(arr[i], i)) result.push(arr[i]);
+    const item = arr[i] as T;
+    if (fn(item, i)) result.push(item);
   }
   return result;
 }
