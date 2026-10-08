@@ -21,8 +21,8 @@ export function Button({ variant = "primary", className = "", ...props }: Button
 }
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  label?: string;
-  error?: string;
+  label?: string | undefined;
+  error?: string | undefined;
 };
 
 export function Input({ label, error, id, className = "", ...props }: InputProps) {
