@@ -27,13 +27,7 @@ const schema = z
       .regex(/^[a-zA-Z\s]+$/, "Name can only contain letters and spaces"),
     email: z.string().trim().email("Enter a valid email address").max(255),
     phone: z.string().trim().regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit phone number"),
-    password: z
-      .string()
-      .min(8, "Password must be at least 8 characters")
-      .regex(/[A-Z]/, "Must contain an uppercase letter")
-      .regex(/[a-z]/, "Must contain a lowercase letter")
-      .regex(/\d/, "Must contain a number")
-      .regex(/[^A-Za-z0-9]/, "Must contain a special character"),
+    password: z.string().min(1, "Password is required"),
     confirmPassword: z.string(),
   })
   .refine((d) => d.password === d.confirmPassword, {
